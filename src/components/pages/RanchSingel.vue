@@ -1,0 +1,340 @@
+<template>
+  <div>
+    <div class="hotels-singel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <div>
+              <ul class="hotels-singel-url">
+                <li><router-link to="/">Главная</router-link></li>
+                <li><router-link to="/Ranch">Дачи/дома</router-link></li>
+                <li>Ranch Item</li>
+              </ul>
+            </div>
+            <div class="hotel-address-content">
+              <div class="hotel-address-inner">
+                <div class="hotel-name">Ranch Item</div>
+                <div class="address-link">
+                  <img src="@/assets/images/svg/map-location.svg" alt="" /><a
+                    href="#!"
+                    >На карте</a
+                  >
+                </div>
+              </div>
+              <div class="hotel-name-address">
+                <div class="hotel-name-address-inner">
+                  <img src="@/assets/images/svg/location.svg" alt="" />
+                  <span>Ташкентская область, Бостанлыкский район,</span>
+                </div>
+                <div class="hotel-name-address-inner">
+                  <span>1-я ул. Шивли, 1</span>
+                  <span class="hotel-gost"
+                    ><img src="@/assets/images/svg/visibility.svg" alt="" />
+                    <span>2800</span></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <div class="thumb m-b-30">
+              <div
+                @slideChange="onTopChange"
+                v-swiper:swiperTop="swiperOptionTop"
+                class="swiper gallery-top"
+              >
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" v-for="i in 5" :key="i">
+                    <img :src="`http://picsum.photos/70${i}`" alt=":(" />
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+              <div
+                @slideChange="onThumbnailChange"
+                v-swiper:swiperThumbs="swiperOptionThumbs"
+                class="swiper gallery-thumbs"
+              >
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" v-for="i in 5" :key="i">
+                    <img :src="`http://picsum.photos/70${i}`" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="ranch-info-title"><b>Услуги и удобства</b></div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/bed.svg" alt="" />
+                </div>
+                <div>Количество спален : 3</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/hot-water.svg" alt="" />
+                </div>
+                <div>Горячая вода</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/swimming-pool.svg" alt="" />
+                </div>
+                <div>Летний бассейн</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/bbq.svg" alt="" />
+                </div>
+                <div>Мангал</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/couch.svg" alt="" />
+                </div>
+                <div>Тапчан</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/freezer.svg" alt="" />
+                </div>
+                <div>Холодильник</div>
+              </div>
+            </div>
+            <div class="col-md-6 ranch-pl-0">
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/garage.svg" alt="" />
+                </div>
+                <div>Гараж</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/shower.svg" alt="" />
+                </div>
+                <div>Душ/ванна</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/cooking.svg" alt="" />
+                </div>
+                <div>Летняя кухня</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/bathroom.svg" alt="" />
+                </div>
+                <div>Сан.узел внутри дома</div>
+              </div>
+              <div class="ranch-info-blocks">
+                <div>
+                  <img src="@/assets/images/svg/watch-tv.svg" alt="" />
+                </div>
+                <div>Телевизор</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="ranch-info-title"><b>Календарь брони</b></div>
+          <div>
+            <div>
+              <v-date-picker v-model="range" is-range />
+            </div>
+            <hr />
+            <div class="ranch-booking-price">
+              <div>Цена за день :</div>
+              <div class="ranch-price"><a href="#!">1 700 000 сўм</a></div>
+            </div>
+            <div class="ranch-booking-price">
+              <div>Стоимость за день, выходной день :</div>
+              <div class="ranch-price"><a href="#!">2 250 000 сўм</a></div>
+            </div>
+            <div class="ranch-booking-price">
+              <div>Цена обновлена :</div>
+              <div><a href="#!">09.07.2021</a></div>
+            </div>
+          </div>
+          <form class="form-ranch">
+            <div class="ranch-booking-bron">Бронирование</div>
+            <div class="ranch-booking-subbron">Выберите дату</div>
+            <div class="ranch-booking-date">
+              <span>Заезд:</span>
+              <div>
+                <DatePicker
+                  placeholder="Выберите дату"
+                  class="hotel-date"
+                  v-model="hotelDateGo"
+                  type="datetime"
+                ></DatePicker>
+              </div>
+            </div>
+            <div class="ranch-booking-on">
+              <div>Время заезда</div>
+              <div class="ranch-booking-times">
+                <div class="custom-control custom-mod1 custom-radio">
+                  <input
+                    type="radio"
+                    id="customRadio1"
+                    name="customRadio"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="customRadio1"
+                    >До 10:00</label
+                  >
+                </div>
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    id="customRadio2"
+                    name="customRadio"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="customRadio2"
+                    >До 20:00</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="ranch-booking-date">
+              <span>Выезд:</span>
+              <div>
+                <DatePicker
+                  placeholder="Выберите дату"
+                  class="hotel-date"
+                  v-model="hotelDateGo2"
+                  type="datetime"
+                ></DatePicker>
+              </div>
+            </div>
+            <div class="ranch-booking-on">
+              <div>Время выезда</div>
+              <div class="ranch-booking-times">
+                <div class="custom-control custom-mod2 custom-radio">
+                  <input
+                    type="radio"
+                    id="customRadio3"
+                    name="customRadio"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="customRadio3"
+                    >После 9:00</label
+                  >
+                </div>
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    id="customRadio4"
+                    name="customRadio"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="customRadio4"
+                    >После 19:00</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="ranch-booking-bron-price">
+              Предварительная стоимость : 0 сўм
+            </div>
+            <div class="ranch-booking-date m-t-25">
+              <span class="booking-name-red">Ваше имя:</span>
+              <div>
+                <input type="tel" placeholder="Ваше имя" />
+              </div>
+            </div>
+            <div class="ranch-booking-date m-t-25">
+              <span class="booking-name-red">Ваш телефон:</span>
+              <div>
+                <input type="tel" placeholder="+998" />
+              </div>
+            </div>
+            <div class="ranch-booking-bron m-t-25 booking-phone">
+              +99XXX XXXXXXX
+            </div>
+            <button class="ranch-booking-btn">Показать контактный номер</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { directive } from "vue-awesome-swiper";
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
+
+export default {
+  data() {
+    return {
+      range: {
+        start: new Date(2020, 0, 1),
+        end: new Date(2020, 0, 5),
+      },
+      hotelDateGo: null,
+      hotelDateGo2: null,
+      swiperOptionTop: {
+        loop: true,
+        loopedSlides: 5, 
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
+      swiperOptionThumbs: {
+        loop: true,
+        loopedSlides: 5, 
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        touchRatio: 0.2,
+        slideToClickedSlide: true,
+      },
+    };
+  },
+  componentPrefix: "vc",
+  components: {
+    DatePicker,
+  },
+  directives: {
+    swiper: directive,
+  },
+  methods: {
+    onThumbnailChange(val) {
+      this.swiperTop.slideTo(val.activeIndex);
+    },
+    onTopChange(val) {
+      this.swiperThumbs.slideTo(val.activeIndex);
+    },
+  },
+};
+</script>
+
+<style>
+:root {
+  --text-lg: 26px;
+}
+.hotels-singel-body .vc-container {
+  max-width: auto;
+  width: 100% !important;
+  font-size: 26px !important;
+  --text-lg: 26px;
+}
+
+.vc-container .vc-header {
+  padding-bottom: 15px !important;
+  font-size: 26px !important;
+}
+</style>
